@@ -1,0 +1,5 @@
+let csrf;const $=s=>document.querySelector(s),labels={pending:'请确认是否同意来访申请人继续填写。',approved:'您已同意，申请人可以继续填写入校信息。',rejected:'您已拒绝此次请求。',expired:'请求已过期。',cancelled:'申请信息已变更，此请求已失效。',submitted:'申请人已完成提交。'};
+function show(status){$('#reviewStatus').textContent=labels[status]||'请求暂不可处理';$('#approve').disabled=$('#reject').disabled=status!=='pending';}
+async function load(){try{const r=await fetch('/api/host-review');const data=await r.json();if(!r.ok)throw Error(data.error);csrf=data.csrf;$('#reviewName').textContent=data.applicantName;$('#reviewOrg').textContent=data.applicantOrg;show(data.status);}catch(err){$('#reviewStatus').textContent=err.message;}}
+for(const [id,action]of [['approve','approve'],['reject','reject']])$('#'+id).onclick=async()=>{if(!confirm(action==='approve'?'确认同意该申请人继续填写入校申请？':'确认不同意此次请求？'))return;$('#approve').disabled=$('#reject').disabled=true;try{const r=await fetch('/api/host-review',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({action})});const out=await r.json();if(!r.ok)throw Error(out.error);show(out.status);}catch(err){$('#reviewStatus').textContent=err.message;}};
+load();

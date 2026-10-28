@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+private/
+node_modules/
+output/
+PROJECT_HANDOFF.md
+*.log
+*.sqlite*
+*.db
+*.db-*
+*.pem
+*.key
+*.p12
+*.privacy.enc
+__pycache__/
+.DS_Store

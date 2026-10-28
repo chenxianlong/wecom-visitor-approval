@@ -1,0 +1,23 @@
+[Unit]
+Description=WeCom visitor approval service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=visitor-approval
+Group=visitor-approval
+WorkingDirectory=/opt/wecom-visitor-approval
+ExecStart=/usr/bin/node --env-file=/opt/wecom-visitor-approval/.env /opt/wecom-visitor-approval/server.mjs
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+StateDirectory=visitor-approval
+RestrictSUIDSGID=true
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

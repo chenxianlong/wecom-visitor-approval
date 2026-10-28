@@ -1,0 +1,15 @@
+{
+  "name": "wecom-visitor-approval",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env server.mjs",
+    "test": "node --test test/approval.test.mjs test/host.test.mjs test/review.test.mjs test/notifications.test.mjs test/gate-pass.test.mjs test/approval-query.test.mjs test/result-access.test.mjs test/template-scope.test.mjs test/car-gate.test.mjs test/template-discovery.test.mjs test/audit-store.test.mjs test/plate.test.mjs test/aliyun-sms.test.mjs test/phone-verification.test.mjs test/phone-submit.test.mjs test/portable-config.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "description": "Visitor management built on WeCom native approval workflows",
+  "license": "MIT"
+}

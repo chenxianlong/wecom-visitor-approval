@@ -1,0 +1,20 @@
+.gate-main{max-width:560px}.gate-button{display:block;width:100%;border:0;border-radius:9px;background:#21654d;color:white;padding:15px;font:inherit;cursor:pointer;white-space:normal;line-height:1.6}.gate-button:disabled{background:#9bad9f;cursor:wait}#gateError{font-size:13px;color:#aa4936;line-height:1.8;overflow-wrap:anywhere}#pass{padding:0;overflow:hidden}.pass-banner{padding:28px 20px;text-align:center;background:#e4f1e7;color:#21654d}.pass-banner.upcoming{background:#fff2d6;color:#926817}.pass-banner.expired,.pass-banner.invalid{background:#f7e6e1;color:#a34331}.pass-banner p{font-size:12px}#statusIcon{display:block;font-size:36px;margin-bottom:10px}.pass-body{padding:24px}.pass-label{font-size:11px;color:#8b9b8e}.pass-body h2{font-size:28px;overflow-wrap:anywhere}dl{display:grid;grid-template-columns:76px minmax(0,1fr);gap:14px;font-size:13px;line-height:1.8;margin:25px 0}dt{color:#829083}dd{margin:0;overflow-wrap:anywhere}.live-time{border:1px solid #dce9dc;border-radius:8px;padding:12px;font-size:11px;line-height:1.8;overflow-wrap:anywhere}.live-time strong{display:block;font-size:16px}.pulse{display:inline-block;width:8px;height:8px;margin-right:6px;border-radius:50%;background:#3b8c58;animation:pulse 1.2s infinite}@keyframes pulse{50%{opacity:.25}}@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+
+/* Only a currently valid card displays the moving permission badge. */
+#pass [hidden]{display:none!important}
+#passAnimation{margin:0 auto 16px;max-width:280px}
+.pass-motion{display:block;width:156px;height:156px;margin:0 auto;overflow:visible}
+.pass-track{fill:none;stroke:currentColor;stroke-width:2;opacity:.16}
+.pass-ring{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-dasharray:90 35 20 35 70 152}
+.pass-orbit{transform-origin:80px 80px;animation:pass-orbit 5s linear infinite}
+.pass-dot{fill:currentColor}
+.pass-core{fill:currentColor;fill-opacity:.08}
+.pass-check{fill:none;stroke:currentColor;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:80;animation:pass-check 3s ease-in-out infinite}
+.pass-flow{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;animation:pass-flow 1.8s ease-in-out infinite}
+.flow-two{animation-delay:.3s}
+.pass-permission{display:block;font-size:26px;letter-spacing:.16em;padding-left:.16em;line-height:1.7}
+.pass-motion-caption{display:block;font-size:12px;line-height:1.8;margin-top:4px}
+@keyframes pass-orbit{to{transform:rotate(360deg)}}
+@keyframes pass-check{0%,100%{stroke-dashoffset:80;opacity:.35}25%,85%{stroke-dashoffset:0;opacity:1}}
+@keyframes pass-flow{0%,100%{transform:translateY(-3px);opacity:.25}50%{transform:translateY(2px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.pass-orbit{animation-duration:20s}.pass-check,.pass-flow{animation:none}}
